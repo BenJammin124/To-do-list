@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odin To Do List</title>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="side-bar">
+      <h1 class="task-list-title">MyLists</h1>
+
+      <ul class="task-list" data-lists>
+        <li class="task-name">All</li>
+        <li class="task-name">Today</li>
+        <li class="task-name">Upcoming</li>
+      </ul>
+      <button>Add New Project</button>
+      <button class="new-task">Add new task</button>
+    </div>
+    <div class="content">
+      <div class="task">
+        <h3>Call Bobby</h3>
+        <p>Description: Bobby needs to talk</p>
+        <p>Due: 03/20/2024</p>
+        <p>Priority: High</p>
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
+
+    </div>
+
+    <button id="openModalBtn">Open Modal</button>
+
+
+    <dialog class="taskModal">
+      <span class="close">&times;</span>
+      <form id="taskForm">
+        <div class="inputDiv">
+          <label for="taskName">Task Name:</label>
+          <input type="text" id="taskName" name="taskName" required>
+        </div>
+        <div class="inputDiv">
+          <label for="taskDescription">Task Description:</label>
+          <input type="text" id="taskDescription" name="taskDescription">
+        </div>
+        <div class="inputDiv">
+          <label for="taskDueDate">Due Date:</label>
+          <input type="date" id="taskDueDate" name="taskDueDate">
+        </div>
+        <label for="taskPriority">Priority:</label>
+        <div class="inputDiv">
+          <select id="taskPriority" name="taskPriority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+        <div class="inputDiv">
+          <label for="listSelect">Select list to add task to</label>
+          <select name="listSelect" id="listSelect"></select>
+        </div>
+        <button type="submit">Add Task</button>
+      </form>
+    </dialog>
+
+  </div>
+
+</body>
+
+</html>
