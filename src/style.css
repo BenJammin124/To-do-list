@@ -35,23 +35,82 @@
 .main-container {
   display: grid;
   grid-template-columns: minmax(auto, 250px) minmax(auto, 1fr);
-  /* Sidebar takes as much space as it needs, up to 250px */
+
   gap: 20px;
-  /* Adjust the gap between sidebar and content */
+
 }
 
 .side-bar {
   background-color: #f0f0f0;
-  /* Add styling for the sidebar */
+
 }
 
 .content {
   background-color: #e0e0e0;
-  /* Add styling for the content area */
+
+}
+
+.project-list-default,
+.project-list-created {
+  line-height: 1.5;
+  font-size: 1.1rem;
+}
+
+
+.project-name {
+  cursor: pointer;
+}
+
+.project-name:hover {
+  opacity: .7;
+}
+
+.active-list {
+  font-weight: 700;
+}
+
+.new-project-form {
+  display: flex;
+}
+
+.btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+}
+
+.btn.create {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-right: .25em;
+  transition: opacity 150ms ease-in;
+}
+
+.btn.create:hover {
+  opacity: .7;
+}
+
+.new {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid black;
+  outline: none;
+
+  transition: border-bottom 120ms ease-in;
+  order: 2;
+}
+
+.new:focus {
+  border-bottom-width: 3px;
+}
+
+.new:focus::placeholder {
+  opacity: .2;
 }
 
 /* Task UI */
-.task {
+.task-element {
   display: flex;
   gap: 8px;
 }

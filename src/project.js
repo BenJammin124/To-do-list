@@ -1,7 +1,11 @@
-class NewProject {
+import CreateNewTask from './task'
+
+class Project {
   constructor(title) {
     this.title = title
-    this.projectList = []
+    this.tasks = []
+    this.id = Math.random();
+    // this.id = crypto.randomUUID();
   }
 
   getTitle() {
@@ -9,24 +13,26 @@ class NewProject {
   }
 
   getProjectList() {
-    return this.projectList;
+    return this.tasks;
   }
 
   addTask(task) {
-    this.projectList.push(task)
+    this.tasks.push(task)
   }
 
-  deleteTask(task) {
-    this.projectList.splice(index, 1)
+  getId() {
+    console.log(this.id)
+  }
+
+  deleteTask(index) {
+    this.tasks.splice(index, 1)
   }
 
   taskCompleted(index) {
-    this.projectList[index].completed = !this.list[index].completed
+    this.tasks[index].completed = !this.tasks[index].completed
   }
 
-  // render() {
 
-  // }
 }
 
-export default NewProject
+export default Project

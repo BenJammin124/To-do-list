@@ -1,67 +1,39 @@
-import CreateTask from './task';
-import NewProject from './project';
-import { openModal, closeModal, initializeModal, handleFormSubmission } from './dom';
+import Task from './task';
+import Project from './project';
+import { initializeModal, handleFormSubmission, renderTask, ScreenController } from './dom';
 import './style.css';
 
-
-const allLists = new NewProject('All');
-const todayTasks = new NewProject('Today');
-const upcomingTasks = new NewProject('Upcoming');
+ScreenController();
 
 
-const listsContainer = document.querySelector('[data-lists]')
-let projects = [allLists, todayTasks, upcomingTasks]
 
-function renderProjects() {
-  clearElement(listsContainer)
-  projects.forEach(list => {
-    const listElement = document.createElement('li');
-    listElement.classList.add('list-name');
-    listElement.innerText = list.getTitle();
-    listsContainer.appendChild(listElement)
-  })
-}
+// const listsContainer = document.querySelector('[data-lists]')
+// let projects = [inbox, all, today, upcoming]
 
-function clearElement(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild)
-  }
-}
+// function renderProjects() {
+//   clearElement(listsContainer)
+//   projects.forEach(list => {
+//     const listElement = document.createElement('li');
+//     listElement.classList.add('list-name');
+//     listElement.innerText = list.getTitle();
+//     listsContainer.appendChild(listElement)
+//   })
+// }
 
-const taskList = document.querySelector('#listSelect');
+// function clearElement(element) {
+//   while (element.firstChild) {
+//     element.removeChild(element.firstChild)
+//   }
+// }
 
-function getCurrentProjects() {
-  projects.forEach((project) => {
-    const addListToOption = document.createElement('option');
-    addListToOption.value = project.getTitle();
-    addListToOption.innerHTML = project.getTitle();
-    taskList.append(addListToOption);
-  })
-}
+// const taskList = document.querySelector('#listSelect');
 
-function addTaskToProject(task) {
-  if (taskList.value !== 'All')
-    projects.forEach((project) => {
-      if (taskList.value === project.getTitle()) {
-        project.addTask(task);
-        projects[0].addTask(task);
-      }
-    });
+// function getCurrentProjects() {
+//   projects.forEach((project) => {
+//     const addListToOption = document.createElement('option');
+//     addListToOption.value = project.getTitle();
+//     addListToOption.innerHTML = project.getTitle();
+//     taskList.append(addListToOption);
+//   })
+// }
 
-  if (taskList.value === 'All') {
-    projects[0].addTask(task);
-  }
-  console.log(projects)
-}
-
-function initializeApp() {
-  getCurrentProjects()
-  renderProjects();
-  initializeModal();
-  handleFormSubmission();
-}
-
-initializeApp();
-
-
-export { projects, addTaskToProject }
