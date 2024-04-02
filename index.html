@@ -12,32 +12,39 @@
     <div class="side-bar">
       <h1 class="task-list-title">MyLists</h1>
 
-      <ul class="task-list" data-lists>
-        <li class="task-name">All</li>
+      <ul class="project-list-default" data-lists>
+        <li class="task-name"><button>Inbox</button></li>
         <li class="task-name">Today</li>
+
         <li class="task-name">Upcoming</li>
+
       </ul>
-      <button>Add New Project</button>
-      <button class="new-task">Add new task</button>
+      <h2>Projects</h2>
+      <ul class="project-list-created">
+        <!-- <li>Stuff</li> -->
+      </ul>
+      <form action="" class="new-project-form">
+        <input type="text" class="new list" placeholder="new list name" />
+        <button class="btn create">+</button>
+      </form>
+      <button id="openModalBtn" class="new-task">Add new task</button>
     </div>
     <div class="content">
-      <div class="task">
+      <div class="task-element">
         <h3>Call Bobby</h3>
         <p>Description: Bobby needs to talk</p>
         <p>Due: 03/20/2024</p>
         <p>Priority: High</p>
-        <button>Edit</button>
+        <button class="edit-task">Edit</button>
         <button>Delete</button>
       </div>
 
     </div>
 
-    <button id="openModalBtn">Open Modal</button>
-
 
     <dialog class="taskModal">
       <span class="close">&times;</span>
-      <form id="taskForm">
+      <form id="new-task-form">
         <div class="inputDiv">
           <label for="taskName">Task Name:</label>
           <input type="text" id="taskName" name="taskName" required>
