@@ -12,19 +12,21 @@
     <div class="side-bar">
       <h1 class="task-list-title">MyLists</h1>
 
-      <ul class="project-list-default" data-lists>
-        <li class="task-name"><button>Inbox</button></li>
-        <li class="task-name">Today</li>
+      <div class="project-list-default" data-lists>
+        <div>
+          <li class="project-name">Inbox</li>
+        </div>
+        <li class="project-name">Today</li>
 
-        <li class="task-name">Upcoming</li>
+        <li class="project-name">Upcoming</li>
 
-      </ul>
+      </div>
       <h2>Projects</h2>
-      <ul class="project-list-created">
+      <div class="project-list-created">
         <!-- <li>Stuff</li> -->
-      </ul>
+      </div>
       <form action="" class="new-project-form">
-        <input type="text" class="new list" placeholder="new list name" />
+        <input type="text" id="new-project-title" class="new list" placeholder="new list name" />
         <button class="btn create">+</button>
       </form>
       <button id="openModalBtn" class="new-task">Add new task</button>
@@ -40,6 +42,18 @@
       </div>
 
     </div>
+
+
+    <dialog class="projectModal">
+      <span class="close">&times;</span>
+      <form action="" id="edit-project-form">
+        <div class="inputDiv">
+          <label for="edit-project-title">New project name</label>
+          <input type="text" name="edit-project-title" id="edit-project-title">
+        </div>
+        <button>Confirm</button>
+      </form>
+    </dialog>
 
 
     <dialog class="taskModal">
