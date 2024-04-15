@@ -1,4 +1,5 @@
 import CreateNewTask from './task'
+import { saveToLocalStorage } from "./localStorage";
 
 class Project {
   constructor(title) {
@@ -11,6 +12,15 @@ class Project {
   getTitle() {
     return this.title
   }
+
+  setTitle(title) {
+    this.title = title;
+  }
+
+  sortByDate() {
+    this.tasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+  }
+
 
   getProjectList() {
     return this.tasks;

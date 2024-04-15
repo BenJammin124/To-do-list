@@ -1,9 +1,9 @@
-
+import { isToday, format, parseISO, isThisWeek } from "date-fns";
+import { saveToLocalStorage } from "./localStorage";
 
 class ToDo {
   constructor() {
     this.projects = [];
-
   }
 
   getProjectTitle() {
@@ -11,15 +11,53 @@ class ToDo {
   }
 
   addProject(project) {
-    this.projects.push(project)
+    this.projects.push(project);
+  }
+
+  deleteProject(projectIndex) {
+    this.projects.splice(projectIndex, 1);
   }
 
   allTasks() {
+    const allTasksArr = [];
     this.projects.forEach(project => {
       project.tasks.forEach(task => {
-        console.log(task)
+        allTasksArr.push(task)
       })
     })
+    return allTasksArr;
+  }
+
+  todayTasks() {
+    const todayTasksArr = [];
+    const today = format(new Date(), 'MM-dd-yyyy');
+    const taskIds = [];
+    this.allTasks().forEach(task => {
+      const taskDueDate = task.dueDate
+      if (today === taskDueDate) {
+        if (!taskIds.includes(task.id)) {
+          todayTasksArr.push(task);
+          taskIds.push(task.id);
+        }
+
+      }
+    })
+    return todayTasksArr;
+  }
+
+  thisWeekTasks() {
+    const thisWeekArr = [];
+    const taskIds = [];
+    this.allTasks().forEach(task => {
+      const taskDueDate = task.dueDate;
+      if (isThisWeek(taskDueDate)) {
+        if (!taskIds.includes(task.id)) {
+          thisWeekArr.push(task);
+          taskIds.push(task.id);
+        }
+      }
+    })
+    return thisWeekArr;
   }
 }
 

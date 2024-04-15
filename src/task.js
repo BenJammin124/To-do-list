@@ -1,3 +1,5 @@
+import { saveToLocalStorage } from "./localStorage";
+
 class Task {
   constructor(task, description, dueDate, priority, listName = 'All') {
     this.task = task
@@ -6,7 +8,7 @@ class Task {
     this.priority = priority
     this.listName = listName
     this.completed = false
-    this.id = crypto.randomUUID();
+    this.id = Math.random();
   }
 
   editTask(newTask, newDescription, newDueDate, newPriority, newListName) {
