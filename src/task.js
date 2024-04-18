@@ -1,5 +1,3 @@
-import { saveToLocalStorage } from "./localStorage";
-
 class Task {
   constructor(task, description, dueDate, priority, listName = 'All') {
     this.task = task

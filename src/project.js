@@ -1,12 +1,8 @@
-import CreateNewTask from './task'
-import { saveToLocalStorage } from "./localStorage";
-
 class Project {
   constructor(title) {
     this.title = title
     this.tasks = []
     this.id = Math.random();
-    // this.id = crypto.randomUUID();
   }
 
   getTitle() {

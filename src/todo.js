@@ -20,9 +20,14 @@ class ToDo {
 
   allTasks() {
     const allTasksArr = [];
+    const taskIds = [];
     this.projects.forEach(project => {
       project.tasks.forEach(task => {
-        allTasksArr.push(task)
+        if (!taskIds.includes(task.id)) {
+          allTasksArr.push(task);
+          taskIds.push(task.id);
+        }
+
       })
     })
     return allTasksArr;
