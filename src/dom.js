@@ -533,12 +533,6 @@ export function ScreenController() {
     renderSelectedProject(todo.projects[0])
   }
 
-  const hidden = document.querySelector('.nav');
-  hidden.addEventListener('click', e => {
-    sideBar.classList.toggle('hidden')
-    console.log('hide,e')
-  })
-
   renderUserCreatedProjects();
   renderDefaultProjects();
   getProjectsForDropdown();
