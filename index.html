@@ -8,9 +8,12 @@
 <script defer src="runtime.js"></script><script defer src="main.js"></script></head>
 
 <body>
+  <header class="main-header">
+    <h1>MyLists - A To Do App</h1>
+  </header>
   <div class="main-container">
     <div class="side-bar">
-      <h1 class="task-list-title">MyLists</h1>
+
 
       <div class="project-list-default" data-lists>
         <div>
@@ -29,20 +32,30 @@
         <input type="text" id="new-project-title" class="new list" placeholder="new list name" />
         <button class="btn create">+</button>
       </form>
-      <button id="openModalBtn" class="new-task">Add new task</button>
-    </div>
-    <div class="content">
-      <div class="task-element">
-        <h3>Call Bobby</h3>
-        <p>Description: Bobby needs to talk</p>
-        <p>Due: 03/20/2024</p>
-        <p>Priority: High</p>
-        <button class="edit-task">Edit</button>
-        <button>Delete</button>
+      <!-- <button id="openModalBtn" class="new-task">Add new task</button> -->
+      <div class="creds">
+        <p class="creds-p">Built by <a href="https://github.com/BenJammin124">BenJammin</a></p>
       </div>
-
     </div>
+    <div class="wrap-again">
+      <div class="content">
 
+        <select name="sort-by" id="sort-by">
+          <option value="priority-low">Priority Low</option>
+          <option value="priority-high">Priority High</option>
+          <option value="date">Date</option>
+        </select>
+        <div class="task-element">
+          <h3>Call Bobby</h3>
+          <p>Description: Bobby needs to talk</p>
+          <p>Due: 03/20/2024</p>
+          <p>Priority: High</p>
+          <button class="edit-task">Edit</button>
+          <button>Delete</button>
+        </div>
+      </div>
+      <button id="openModalBtn" class="new-task create"><span class="btn create">+ </span>Add new task</button>
+    </div>
 
     <dialog class="projectModal">
       <span class="close">&times;</span>
@@ -51,7 +64,38 @@
           <label for="edit-project-title">New project name</label>
           <input type="text" name="edit-project-title" id="edit-project-title">
         </div>
-        <button>Confirm</button>
+        <button class="confirm-btn">Confirm</button>
+      </form>
+    </dialog>
+
+    <dialog class="editTaskModal">
+      <span class="close">&times;</span>
+      <form id="edit-task-form">
+        <div class="inputDiv">
+          <label for="editTaskName">Task Name:</label>
+          <input type="text" id="editTaskName" name="editTaskName" required>
+        </div>
+        <div class="inputDiv">
+          <label for="editTaskDescription">Task Description:</label>
+          <input type="text" id="editTaskDescription" name="editTaskDescription">
+        </div>
+        <div class="inputDiv">
+          <label for="editTaskDueDate">Due Date:</label>
+          <input type="date" id="editTaskDueDate" name="editTaskDueDate">
+        </div>
+        <label for="editTaskPriority">Priority:</label>
+        <div class="inputDiv">
+          <select id="editTaskPriority" name="editTaskPriority" class="select-input">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+        <div class="inputDiv">
+          <label for="editListSelect">Select list to add task to</label>
+          <select name="editListSelect" id="editListSelect"></select>
+        </div>
+        <button type="submit" class="confirm-btn">Confirm</button>
       </form>
     </dialog>
 
@@ -61,19 +105,19 @@
       <form id="new-task-form">
         <div class="inputDiv">
           <label for="taskName">Task Name:</label>
-          <input type="text" id="taskName" name="taskName" required>
+          <input type="text" id="taskName" name="taskName" class="text-input" required>
         </div>
         <div class="inputDiv">
           <label for="taskDescription">Task Description:</label>
-          <input type="text" id="taskDescription" name="taskDescription">
+          <input type="text" id="taskDescription" name="taskDescription" class="text-input">
         </div>
         <div class="inputDiv">
           <label for="taskDueDate">Due Date:</label>
-          <input type="date" id="taskDueDate" name="taskDueDate">
+          <input type="date" id="taskDueDate" name="taskDueDate" required>
         </div>
         <label for="taskPriority">Priority:</label>
         <div class="inputDiv">
-          <select id="taskPriority" name="taskPriority">
+          <select id="taskPriority" name="taskPriority" class="select-input">
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
@@ -83,7 +127,7 @@
           <label for="listSelect">Select list to add task to</label>
           <select name="listSelect" id="listSelect"></select>
         </div>
-        <button type="submit">Add Task</button>
+        <button type="submit" id="confirm" class="confirm-btn">Add Task</button>
       </form>
     </dialog>
 
